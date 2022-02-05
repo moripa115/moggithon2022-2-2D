@@ -1,5 +1,5 @@
 // 関数宣言・・・いつものやつ。欠点に、関数の定義記述前に、関数呼び出しができてしまう＝巻き上げ
-// 関数式・・・無名関数を代入することが多い、
+// 関数式・・・無名関数を代入することが多い、その時、関数リテラルと呼ぶ
 //            関数名をつけると、例えば関数内で条件分岐した際の処理部分で、その関数を使用できる
 //             constを用いることで上書き防止できる。良くも悪くも巻き上げを防げる
 
@@ -28,6 +28,8 @@ const game = function(){
         const computerHand = document.querySelector('.computer-hand');
         // コンピューターが何の手を出すか、画像を変えて、何の手かによって条件分岐させたい
         const computerOptions = ['rock', 'paper', 'scissors'];
+        
+        console.log(computerOptions[0]);
 
         // 
         options.forEach(option =>{
@@ -38,9 +40,10 @@ const game = function(){
                     // 通常関数の時は this = optionとなる
             option.addEventListener('click', function(){
                 console.log(this);
-                // Math.randomは0以上1未満の0乱数生成、それを3乗すると、極値的に0以上3未満の乱数生成できる
+                // Math.randomは0以上1未満の0乱数生成、それを3倍すると、極値的に0以上3未満の乱数生成できる
                 // 配列内の手をランダムに表示させたい、つまり0,1,2をランダムに表示させたい => Math.random()*3の小数点以下切り捨てで実現
                 const ComputerRandomNumber = Math.floor(Math.random()*3);
+                console.log(ComputerRandomNumber);
                 //ランダムな 0,1,2を利用して手をランダムにださせる
                 const computerChoice = computerOptions[ComputerRandomNumber];
                 
