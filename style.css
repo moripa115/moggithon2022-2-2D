@@ -90,3 +90,11 @@ div.fadeIn{
     opacity: 1;
     pointer-events: all;
 }
+
+.displayNone{
+    display: none;
+}
+
+.displayBlock{
+    display: block;
+}

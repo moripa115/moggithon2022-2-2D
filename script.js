@@ -6,7 +6,7 @@
 // ゲーム全体に関する関数
 const game = function(){
     let pScore = 0;
-    let CScore = 0;
+    let cScore = 0;
     // gameをスタートさせる挙動
     const startGame = function(){
         // この書き方知らなかった、queryだとタグそのまま指定できる
@@ -45,7 +45,8 @@ const game = function(){
                 const computerChoice = computerOptions[ComputerRandomNumber];
                 
                 // compareHandsの呼び出し
-
+            
+                compareHands(this.textContent,computerChoice);
 
                 // じゃんけんの手の更新
                     //プレイヤーがpaperを選択した時、this=optionの内容は、<button class="paper">paper</button>
@@ -54,18 +55,142 @@ const game = function(){
                 computerHand.src = `./img/${computerChoice}.png`;
             })
         })
-        
+        const updateScore = function() {
+            const playerScore = document.querySelector('.player-score p');
+            const computerScore = document.querySelector('.computer-score p');
+            playerScore.textContent = pScore;
+            computerScore.textContent  = cScore;
+            }
+    // どちらが勝つか、もしくはあいこか、を比較したい
+    
+    const compareHands = function(playerChoice, computerChoice){
+        const winner = document.querySelector('.winner');
+        const win = document.querySelector('.win');
+    if(playerChoice === computerChoice){
+        winner.textContent = "It is a tie";
+        return;
+        // winner.classList.add('fadeOut');
+        //choose an option 消す　class=fadeout
+        //It is a tie 出す　display:non block
+    }
+    if(playerChoice === "rock"){
+        if(computerChoice === 'scissors'){
+            winner.textContent = "You wins !";
+            pScore++;
+            updateScore();
+            return;
+    
+        }else if(computerChoice === 'paper') {
+            winner.textContent = "You loses !"
+            cScore++;
+            updateScore();
+            return;
+        }
+    
+    }
+    if(playerChoice === "scissors"){
+        if(computerChoice === 'paper'){
+            winner.textContent = "You wins !";
+            pScore++;
+            updateScore();
+            return;
+    
+        }else if(computerChoice === 'rock') {
+            winner.textContent = "You loses !"
+            cScore++;
+            updateScore();
+            return;
+        }
+        // let pScore = 0;
+        // let CScore = 0;
+    }
+    if(playerChoice === "paper"){
+        if(computerChoice === 'rock'){
+            winner.textContent = "You wins !";
+            pScore++;
+            updateScore();
+            return;
+    
+        }else if(computerChoice === 'scissors') {
+            winner.textContent = "You loses !"
+            cScore++;
+            updateScore();
+            return;
+        }
+    
+    }
+    }
     } 
     // すべてのinner functionを呼び出す
     startGame();
     playMatch();
 };
 
-// どちらが勝つか、もしくはあいこか、を比較したい
+//     const updateScore = function() {
+//         const playerScore = document.querySelector('.player-score p');
+//         const computerScore = document.querySelector('.computer-score p');
+//         playerScore.textContent = pScore;
+//         computerScore.textContent  = cScore;
+//         }
+// // どちらが勝つか、もしくはあいこか、を比較したい
 
-const compareHands = function(playerChoice, computerChoice){
+// const compareHands = function(playerChoice, computerChoice){
+//     const winner = document.querySelector('.winner');
+//     const win = document.querySelector('.win');
+// if(playerChoice === computerChoice){
+//     winner.textContent = "It is a tie";
+//     return;
+//     // winner.classList.add('fadeOut');
+//     //choose an option 消す　class=fadeout
+//     //It is a tie 出す　display:non block
+// }
+// if(playerChoice === "rock"){
+//     if(computerChoice === 'scissors'){
+//         winner.textContent = "You wins !";
+//         pScore++;
+//         updateScore();
+//         return;
 
-}
+//     }else if(computerChoice === 'paper') {
+//         winner.textContent = "You loses !"
+//         cScore++;
+//         updateScore();
+//         return;
+//     }
+
+// }
+// if(playerChoice === "scissors"){
+//     if(computerChoice === 'paper'){
+//         winner.textContent = "You wins !";
+//         pScore++;
+//         updateScore();
+//         return;
+
+//     }else if(computerChoice === 'rock') {
+//         winner.textContent = "You loses !"
+//         cScore++;
+//         updateScore();
+//         return;
+//     }
+//     // let pScore = 0;
+//     // let CScore = 0;
+// }
+// if(playerChoice === "paper"){
+//     if(computerChoice === 'rock'){
+//         winner.textContent = "You wins !";
+//         pScore++;
+//         updateScore();
+//         return;
+
+//     }else if(computerChoice === 'scissors') {
+//         winner.textContent = "You loses !"
+//         cScore++;
+//         updateScore();
+//         return;
+//     }
+
+// }
+// }
 
 // gameの発火
 game();
