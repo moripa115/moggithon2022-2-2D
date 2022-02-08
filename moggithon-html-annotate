@@ -1,0 +1,52 @@
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  1) <!DOCTYPE html>
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  2) <html lang="ja">
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  3) <head>
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  4)     <meta charset="UTF-8">
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  5)     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  6)     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  7)     <title>じゃんけんゲーム</title>
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  8)     <link rel="stylesheet" href="reset.css">
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900  9)     <link rel="stylesheet" href="style.css">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 10)     <!-- <link rel="stylesheet" href="reset.css"> -->
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 11) </head>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 12) <body>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 13)     <section class="game">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 14)         <div class="score">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 15)             <div class="player-score">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 16)                 <h2>Player</h2>
+f9310372 (IGARASHI       2022-02-06 16:18:14 +0900 17)                 <p class="winNumber" >0</p>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 18)             </div>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 19)             <div class="computer-score">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 20)                 <h2>Computer</h2>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 21)                 <p>0</p>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 22)             </div>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 23)         </div>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 24) 
+9372ef59 (hiroki-osuga68 2022-01-29 12:12:27 +0900 25)         <!-- Let's Playクリック後に最初の画面が「見える、クリックできる」ことがないようにjsでクリック後にfadeOutさせる -->
+9372ef59 (hiroki-osuga68 2022-01-29 12:12:27 +0900 26) 
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 27)         <div class="intro">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 28)             <h1>Rock Paper and Scissors</h1>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 29)             <button>Let's Play</button>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 30)         </div>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 31) 
+9372ef59 (hiroki-osuga68 2022-01-29 12:12:27 +0900 32)         <!-- 最初に対戦画面が「見える、クリックできる」ことがないようにfadeOutさせておく -->
+9372ef59 (hiroki-osuga68 2022-01-29 12:12:27 +0900 33) 
+9372ef59 (hiroki-osuga68 2022-01-29 12:12:27 +0900 34)         <div class="match fadeOut">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 35)             <h2 class="winner">Choose an option</h2>
+f9310372 (IGARASHI       2022-02-06 16:18:14 +0900 36) 
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 37)             <div class="hands">
+9372ef59 (hiroki-osuga68 2022-01-29 12:12:27 +0900 38)                 <img class="player-hand" src="./img/rock.png" alt="">
+9372ef59 (hiroki-osuga68 2022-01-29 12:12:27 +0900 39)                 <img class="computer-hand" src="./img/rock.png" alt="">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 40)             </div>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 41)             <div class="options">
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 42)                 <button class="rock">rock</button>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 43)                 <button class="paper">paper</button>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 44)                 <button class="scissors">scissors</button>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 45)             </div>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 46)         </div>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 47)     </section>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 48) 
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 49) </body>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 50) <script src="script.js"></script>
+6934ce5a (加茂竜之介     2022-01-25 18:13:41 +0900 51) 
+aae3fb73 (hiroki-osuga68 2022-01-22 22:40:06 +0900 52) </html>
